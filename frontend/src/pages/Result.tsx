@@ -1,8 +1,8 @@
-import React from "react";
+
 import BG from "../assets/images/BG.jpg";
 import TEXT2 from "../assets/images/TEXT2.png";
 import TEXT1 from "../assets/images/TEXT1.png";
-import TEXT4 from "../assets/images/TEXT4.png";
+
 import MODA from "../assets/images/MODA METER-08.png";
 
 const Result = () => {

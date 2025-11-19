@@ -145,12 +145,12 @@ const Quiz = () => {
     setPage((p) => p - 1);
   };
 
-  const restart = () => {
-    setAnswers(Array.from<Answer>({ length: total }).fill(null));
-    setPage(0);
-    setStarted(false);
-    localStorage.removeItem(QUIZ_KEY);
-  };
+  // const restart = () => {
+  //   setAnswers(Array.from<Answer>({ length: total }).fill(null));
+  //   setPage(0);
+  //   setStarted(false);
+  //   localStorage.removeItem(QUIZ_KEY);
+  // };
 
   return (
     <div
