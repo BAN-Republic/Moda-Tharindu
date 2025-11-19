@@ -22,14 +22,23 @@ type QuizResult = {
   noCount: number;
   stupidPercent: number; // 0–100
 };
+type StupidRule = "A" | "B" | "BOTH";
 
+const STUPID_RULES: StupidRule[] = [
+  "A",    // Q1: "නෑ" (optionA) is මෝඩ
+  "B",    // Q2: "ඔව්" (optionB) is මෝඩ
+  "B",    // Q3: "නෑ" (optionB) is මෝඩ
+  "B",    // Q4: "ඔව්" (optionB) is මෝඩ
+  "A",    // Q5: "ඔව්" (optionA) is මෝඩ
+  "BOTH", // Q6: both answers are මෝඩ
+];
 /** ------- Data: questions -------- */
 const QUESTIONS: Question[] = [
   {
     id: 1,
     prompt: " 1) මෝඩ තරිඳු බැලුවද?",
-    optionA: "ඔව්",
-    optionB: "නෑ",
+    optionB: "ඔව්",
+    optionA: "නෑ",
   },
   {
     id: 2,
@@ -98,31 +107,34 @@ const Quiz = () => {
   }, [currentQuestion, isResultPage, page, shufflePlan]);
 
   const { yesCount, noCount, stupidPercent } = useMemo(() => {
-    let yes = 0;
+    let stupid = 0;
   
     answers.forEach((ans, idx) => {
       if (!ans) return;
   
-      const q = QUESTIONS[idx];
-      const label = ans === "A" ? q.optionA : q.optionB;
+      const rule = STUPID_RULES[idx];
   
-      // Normalize spaces and compare with "ඔව්"
-      const normalized = label.replace(/\s/g, "");
-      if (normalized === "ඔව්") {
-        yes += 1;
+      if (rule === "BOTH") {
+        // any answer is stupid
+        stupid += 1;
+      } else if (rule === ans) {
+        // chosen option matches the stupid one
+        stupid += 1;
       }
     });
   
-    const totalAnswered = total; // or answers.filter(Boolean).length if you want
+    const totalAnswered = total; // or answers.filter(Boolean).length;
     const stupidPct =
-      totalAnswered === 0 ? 0 : Math.round((yes / totalAnswered) * 100);
+      totalAnswered === 0 ? 0 : Math.round((stupid / totalAnswered) * 100);
   
     return {
-      yesCount: yes,
-      noCount: totalAnswered - yes,
+      // re-using yesCount/noCount, but now yesCount = "stupid count"
+      yesCount: stupid,
+      noCount: totalAnswered - stupid,
       stupidPercent: stupidPct,
     };
   }, [answers, total]);
+  
   
 
   const choose = (choice: Choice) => {
@@ -330,7 +342,7 @@ const Quiz = () => {
                   <img
                     src={TEXT2}
                     alt="Tikiri Logo"
-                    className="mx-auto bottom-0 left-0 right-0 absolute max-w-[150px] sm:max-w-xs drop-shadow-xl object-contain"
+                    className="mx-auto -bottom-20 left-0 right-0 absolute max-w-[120px] sm:max-w-xs drop-shadow-xl object-contain"
                   />
                 </section>
               ) : (
