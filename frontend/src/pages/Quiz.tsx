@@ -64,19 +64,19 @@ const QUESTIONS: Question[] = [
   },
   {
     id: 5,
-    prompt: "5) ඔයා ඔයාගේ හොදම යාලුවව විශ්වාස කරනවද?",
+    prompt: "5) ඔයා ඔයාගේ හොඳම යාලුවාව විශ්වාස කරනවද?",
     optionA: " ඔව්",
     optionB: "නෑ",
   },
   {
     id: 6,
-    prompt: "6) ඔයාගෙ partner ට bf/gf කෙනෙක් ඉන්නවද?",
+    prompt: "6) ඔයාගෙ partner ට bf or gf කෙනෙක් ඉන්නවද?",
     optionA: " ඔව්",
     optionB: "නෑ",
   },
   {
     id: 7,
-    prompt: "7) බීලා Ex ට කෝල් කරල තියෙනවද?",
+    prompt: "7) බීලා Ex ට කෝල් කරලා තියෙනවද?",
     optionA: "ඔව්",
     optionB: "නෑ",
   },
