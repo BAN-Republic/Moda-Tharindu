@@ -27,10 +27,14 @@ type StupidRule = "A" | "B" | "BOTH";
 const STUPID_RULES: StupidRule[] = [
   "A",    // Q1: "නෑ" (optionA) is මෝඩ
   "B",    // Q2: "ඔව්" (optionB) is මෝඩ
-  "B",    // Q3: "නෑ" (optionB) is මෝඩ
+  "B",    // Q3: "ඔව්" (optionB) is මෝඩ
   "B",    // Q4: "ඔව්" (optionB) is මෝඩ
-  "A",    // Q5: "ඔව්" (optionA) is මෝඩ
-  "BOTH", // Q6: both answers are මෝඩ
+  "BOTH", // Q5: both answers are මෝඩ
+  "B",    // Q6: "නෑ" (optionB) is මෝඩ
+  "B",    // Q7: "නෑ" (optionB) is මෝඩ
+  "A",    // Q8: "ඔව්" (optionA) is මෝඩ
+  "A",    // Q9: "ඔව්" (optionA) is මෝඩ
+  "BOTH", // Q10: both answers are මෝඩ
 ];
 /** ------- Data: questions -------- */
 const QUESTIONS: Question[] = [
@@ -42,30 +46,55 @@ const QUESTIONS: Question[] = [
   },
   {
     id: 2,
-    prompt: "2) ඔයාගේ partner කියන ඕන දෙයක් කරනවද?",
-    optionB: "ඔව්",
-    optionA: "නෑ",
-  },
-  {
-    id: 3,
-    prompt: "3) ඔයාගෙ partner ට bf/gf කෙනෙක් ඉන්නවද?",
-    optionA: " ඔව්",
-    optionB: "නෑ",
-  },
-  {
-    id: 4,
     prompt: "4) ඔයා බැඳලද?",
     optionB: "ඔව් ",
     optionA: "නෑ",
   },
   {
+    id: 3,
+    prompt: "2) බීලා වාහන පැදලා තියෙනවද?",
+    optionB: "ඔව්",
+    optionA: "නෑ",
+  },
+  {
+    id: 4,
+    prompt: "2) ඔයාගේ partner කියන ඕන දෙයක් කරනවද?",
+    optionB: "ඔව්",
+    optionA: "නෑ",
+  },
+  {
     id: 5,
+    prompt: "3) ඔයා ඔයාගේ හොදම යාලුවව විශ්වාස කරනවද?",
+    optionA: " ඔව්",
+    optionB: "නෑ",
+  },
+  {
+    id: 6,
+    prompt: "3) ඔයාගෙ partner ට bf/gf කෙනෙක් ඉන්නවද?",
+    optionA: " ඔව්",
+    optionB: "නෑ",
+  },
+  {
+    id: 7,
+    prompt: "5) බීලා Ex ට කෝල් කරල තියෙනවද?",
+    optionA: "ඔව්",
+    optionB: "නෑ",
+  },
+
+  {
+    id: 8,
     prompt: "5) ඔයාගෙ partner ව සැක කරනවද?",
     optionA: "ඔව්",
     optionB: "නෑ",
   },
   {
-    id: 6,
+    id: 9,
+    prompt: "6) සාස්තර / දේවාල විශ්වාස කරනවද?",
+    optionA: "ඔව්",
+    optionB: "නෑ",
+  },
+  {
+    id: 10,
     prompt: "6) මේ ප්‍රශ්න ඔක්කොටම ඔයා උත්තර දුන්නද?",
     optionA: "ඔව්",
     optionB: "නෑ",
